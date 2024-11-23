@@ -1,0 +1,166 @@
+p{
+    margin: 0;
+}
+body{
+    background-color:#06522c;
+    background-color: black;
+}
+#container{
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    padding: 15 15 15 15;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: 90%;
+    height: 75%;
+    background-color: black;
+    border-radius: 10px;
+}
+.vLine{
+    background-color: white;
+    height: 100px;
+}
+.select{
+    font-size: 2rem;
+    width: auto;
+    max-width: 100%;
+    min-width: 100px;
+    align-self: center;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+}
+button{
+    font-size: 2rem;
+    width: auto;
+    cursor: pointer;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3;
+    border-color: rgb(255, 0, 51);
+    background-color: rgba(255, 0, 51, 0.1);
+    margin: 0;
+    transition: .5s all ease;
+}
+button:hover{
+    background-color: rgb(226, 16, 58);
+}
+.button-container{
+    background-color: white;
+    border-radius: 40px;
+}
+.menu{
+    border-style: none;
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.speedbox{
+    display: flex;
+    max-width: 100%;
+    border-style: solid;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10 20;
+    border-radius: 20px;
+    height: auto;
+    align-self: center;
+    background-color: white;
+}
+.sortButton{
+    font-size: 3rem;
+    border-radius: 40px;
+    padding: 10 30;
+    margin: 0;
+}
+
+.speedParagraph{
+    font-size: 1.5rem;
+    width: auto;
+}
+
+.left{
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.right{
+    gap: 20px;
+}
+.option{
+    text-align: left;
+}
+
+#sliderSpeed {
+    -webkit-appearance: none;
+    width: 300px;
+    height: 10px;
+    border-radius: 10px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#sliderSpeed::-webkit-slider-thumb {
+    /*-webkit-appearance: none;*/
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%; 
+    background: rgb(255, 0, 51);
+    cursor: pointer;
+}
+
+#shuffle{
+    padding: 5 10;
+}
+
+
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0!important;
+    background: #ffffff;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    cursor:pointer;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+ }
+ select::-ms-expand {
+    display: none;
+ }
+ .select-container {
+    position: relative;
+    display: flex;
+    width: auto;
+    height: 3em;
+    line-height: 3;
+    background: #ffffff;
+    overflow: hidden;
+    border-radius: .25em;
+    align-self: center;
+ }
+.select-container::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #666d6d;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+}

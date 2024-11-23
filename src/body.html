@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Sort</title>
+    </head>
+    <body onload="change(0, false)">
+        <div style="height: 3%;"></div>
+        <div class="menu">
+            <div class="left" style="width: auto; border-style: none; display: flex;">
+                <div style="display: flex; gap: 10px; align-items: center; border-style: none;">
+                    <div class="select-container">
+                        <select class="select" name="number" id="number">
+                            <option class="option" value="100" selected="selected">100</option>
+                            <option class="option" value="200">200</option>
+                            <option class="option" value="500">500</option>
+                            <option class="option" value="1000">1000</option>
+                        </select>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="button-container" style="border-radius: 15px;">
+                        <button id="shuffle" onclick="shuffle(0, false)">Shuffle</button>
+                    </div>
+                    
+                </div>
+                <div class="speedbox">
+                    <p class="speedParagraph">speed</p>
+                    <input type="range" min="1" max="10" value="5" id="sliderSpeed">
+                    <p id="outputSlider" style="font-size: 1.5rem;"></p>
+                </div>
+            </div>
+            <div class="right" style="display: flex;">
+                <div class="select-container">
+                    <select class="select" name="algorithm" id="algorithm">
+                        <option class="option" value="bubble">Bubble sort</option>
+                        <option class="option" value="selection">Selection sort</option>
+                        <option class="option" value="insertion">Insertion sort</option>
+                        <option class="option" value="merge" selected>Merge sort</option>
+                        <option class="option" value="quick">Quick sort</option>
+                        <option class="option" value="heap">Heap sort</option>
+                        <option class="option" value="bogo">Bogo sort</option>
+                        <!--option class="option" value="stalin1">Stalin sort 1</option>
+                        <option class="option" value="stalin2">Stalin sort 2</option-->
+                    </select>
+                    <div class="arrow"></div>
+                </div>
+                <div class="button-container">
+                    <button class="sortButton" onclick="sort()" style="width: auto;">Sort</button>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+        <div id="container"></div>
+        <div id="output"></div>
+        <script>
+            var slider = document.getElementById("sliderSpeed");
+            var output = document.getElementById("outputSlider");
+            output.innerHTML = slider.value;
+            
+            slider.oninput = function() {
+              output.innerHTML = this.value;
+            }
+
+            var select = document.getElementsByClassName("select-container");
+            for(let i=0; i<select.length; i++){
+                let w = select[i].offsetWidth;
+                select[i].style.width = w + 50;
+            }
+        </script>
+    </body>
+    <script src="script.js"></script>
+</html>
