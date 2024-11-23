@@ -1,5 +1,22 @@
 let stopFlag=false
 
+function init(){
+    change(0, false);
+    var slider = document.getElementById("sliderSpeed");
+    var output = document.getElementById("outputSlider");
+    output.innerHTML = slider.value;
+    
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+
+    var select = document.getElementsByClassName("select-container");
+    for(let i=0; i<select.length; i++){
+        let w = select[i].offsetWidth;
+        select[i].style.width = w + 50;
+    }
+}
+
 function randomize(array) {
     let currentIndex = array.length;
   

@@ -3,7 +3,7 @@
         <link rel="stylesheet" href="style.css">
         <title>Sort</title>
     </head>
-    <body onload="change(0, false)">
+    <body onload="init()">
         <div style="height: 3%;"></div>
         <div class="menu">
             <div class="left" style="width: auto; border-style: none; display: flex;">
@@ -48,26 +48,9 @@
                 </div>
                 
             </div>
-            
-            
         </div>
         <div id="container"></div>
         <div id="output"></div>
-        <script>
-            var slider = document.getElementById("sliderSpeed");
-            var output = document.getElementById("outputSlider");
-            output.innerHTML = slider.value;
-            
-            slider.oninput = function() {
-              output.innerHTML = this.value;
-            }
-
-            var select = document.getElementsByClassName("select-container");
-            for(let i=0; i<select.length; i++){
-                let w = select[i].offsetWidth;
-                select[i].style.width = w + 50;
-            }
-        </script>
     </body>
     <script src="script.js"></script>
 </html>
