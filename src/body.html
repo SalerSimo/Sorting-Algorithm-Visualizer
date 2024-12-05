@@ -4,18 +4,18 @@
         <title>Sort</title>
     </head>
     <body onload="init()">
-        <div style="height: 3%;"></div>
+        <h1 class="title">Sorting Algorithms Visualizer</h1>
+        <hr style="margin-bottom: 1%; height: 0.1%; background-color: black; border-color: black;">
         <div class="menu">
             <div class="left" style="width: auto; border-style: none; display: flex;">
                 <div style="display: flex; gap: 10px; align-items: center; border-style: none;">
                     <div class="select-container">
                         <select class="select" name="number" id="number">
-                            <option class="option" value="100" selected="selected">100</option>
-                            <option class="option" value="200">200</option>
+                            <option class="option" value="100">100</option>
+                            <option class="option" value="200" selected>200</option>
                             <option class="option" value="500">500</option>
                             <option class="option" value="1000">1000</option>
                         </select>
-                        <div class="arrow"></div>
                     </div>
                     <div class="button-container" style="border-radius: 15px;">
                         <button id="shuffle" onclick="shuffle(0, false)">Shuffle</button>
@@ -34,12 +34,10 @@
                         <option class="option" value="bubble">Bubble sort</option>
                         <option class="option" value="selection">Selection sort</option>
                         <option class="option" value="insertion">Insertion sort</option>
-                        <option class="option" value="merge" selected>Merge sort</option>
+                        <option class="option" value="merge">Merge sort</option>
                         <option class="option" value="quick">Quick sort</option>
                         <option class="option" value="heap">Heap sort</option>
                         <option class="option" value="bogo">Bogo sort</option>
-                        <!--option class="option" value="stalin1">Stalin sort 1</option>
-                        <option class="option" value="stalin2">Stalin sort 2</option-->
                     </select>
                     <div class="arrow"></div>
                 </div>
@@ -50,7 +48,6 @@
             </div>
         </div>
         <div id="container"></div>
-        <div id="output"></div>
     </body>
     <script src="script.js"></script>
 </html>

@@ -19,17 +19,10 @@ function init(){
 
 function randomize(array) {
     let currentIndex = array.length;
-  
-    // While there remain elements to shuffle...
     while (currentIndex != 0) {
-  
-      // Pick a remaining element...
       let randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-  
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
 }
 
@@ -83,44 +76,28 @@ function change(length, takeLenght){
     }
 }
 
-async function color(element){
-    element.style.backgroundColor = "green";
-    await sleep(100);
-    element.style.backgroundColor = "white";
-}
-
 async function bubbleSort(arr, slider) {
     stopFlag = false;
     let n = arr.length;
     let j;
-    // Outer loop to traverse the entire array
+
     for (let i = 0; i < n - 1; i++) {
-        // Inner loop for comparison of adjacent elements
         for (j = 0; j < n - i - 1; j++) {
             if(stopFlag){
-                //change();
                 return;
             }
-            // Swap if the current element is greater than the next element
             if (arr[j].offsetHeight > arr[j + 1].offsetHeight) {
                 let temp = arr[j].offsetHeight;
                 arr[j].style.height = arr[j + 1].offsetHeight;
                 arr[j + 1].style.height = temp;
             }
-            arr[j].style.backgroundColor = "#04AA6D";
             if(j%(slider.value*2) == 0){
-                await sleep(10);
+                await sleep(5);
             }
-            arr[j].style.backgroundColor = "white";
         }
-        color(arr[j])
-    }
-    for (let i = 0; i < n; i++) {
-        arr[i].style.backgroundColor = "white";
     }
     return arr;
 }
-
 
 async function selectionSort(array, slider){
     stopFlag = false;
@@ -135,19 +112,12 @@ async function selectionSort(array, slider){
                 min = j;
             }
         }
-        array[min].style.backgroundColor = "green";
         if(min != i){
             temp = array[i].offsetHeight;
             array[i].style.height = array[min].offsetHeight;
             await sleep(50/slider.value);
-            array[min].style.backgroundColor = "white";
             array[min].style.height = temp;
         }
-        array[min].style.backgroundColor = "white";
-        color(array[i]);
-    }
-    for(let i=0; i<array.length; i++){
-        array[i].style.backgroundColor = "white";
     }
 }
 
@@ -161,13 +131,11 @@ async function insertionSort(array, slider){
         j = i-1;
         x = array[i].offsetHeight;
         while(j>=0 &&  x < array[j].offsetHeight){
-            array[j].style.backgroundColor = "green";
             array[j+1].style.height = array[j].offsetHeight;
             j--;
             if(j%slider.value == 0){
                 await sleep(1);
             }
-            array[j+1].style.backgroundColor = "white";
         }
         array[j+1].style.height = x;
     }
@@ -177,25 +145,18 @@ async function mergeSort(arr, slider, left = 0, right = arr.length - 1) {
     stopFlag = false;
     if (left < right) {
         const mid = Math.floor((left + right) / 2);
-        // Recursively sort the left half
         await mergeSort(arr, slider, left, mid);
-        // Recursively sort the right half
         await mergeSort(arr, slider, mid + 1, right);
-        // Merge the sorted halves
         await merge(arr, left, mid, right, slider);
     }
 
     async function merge(arr, left, mid, right, slider) {
         let start2 = mid + 1;
         let originalLeft = left;
-        // If the direct merge is already sorted
+        
         if (arr[mid].offsetHeight <= arr[start2].offsetHeight) {
             return;
         }
-        /*for(let i=left; i<=right; i++){
-            //arr[i].style.backgroundColor = "red";
-        }*/
-        // Two pointers to traverse the two halves
         while (left <= mid && start2 <= right) {
             if (arr[left].offsetHeight <= arr[start2].offsetHeight) {
                 left++;
@@ -203,62 +164,30 @@ async function mergeSort(arr, slider, left = 0, right = arr.length - 1) {
                 const value = arr[start2].offsetHeight;
                 let index = start2;
     
-                // Shift all elements between left and start2 to the right
                 while (index !== left) {
                     arr[index].style.height = arr[index - 1].offsetHeight;
                     index--;
                 }
                 arr[left].style.height = value;
     
+    
+                // Update all pointers
+
                 // Update all pointers
                 left++;
                 mid++;
                 start2++;
             }
             if(stopFlag){
-                //change();
                 return;
             }
-            arr[left-1].style.backgroundColor = "green";
             if(left%(slider.value)==0){
                 await sleep(1);
             }
-            arr[left-1].style.backgroundColor = "white";
-        }  
-        for(let i=originalLeft; i<=right; i++){
-            //arr[i].style.backgroundColor = "white";
         }
     }
 }
 
-async function stalinSort1(array, slider) {
-    stopFlag = false;
-    let j, n = 0;
-    for(let i=1; i<array.length; i++){
-        if(array[i].offsetHeight < array[i-1].offsetHeight){
-            for(j=i+1; j<array.length-n; j++){
-                if(stopFlag){
-                    return;
-                }
-                array[j-1].style.height = array[j].style.height;
-            }
-            array[j-1].style.height = "0";
-            await sleep(50/(2*slider.value));
-            n = n + 1;
-            i--;
-        }
-    }
-}
-async function stalinSort2(array, slider) {
-    stopFlag = false
-    for(let i=0; i<array.length; i++){
-        if(stopFlag){
-            return;
-        }
-        array[i].style.height = "50%";
-        await sleep(100/(2*slider.value));
-    }
-}
 
 async function bogoSort(array, slider) {
     stopFlag = false;
