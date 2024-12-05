@@ -1,5 +1,7 @@
 # Sorting Algorithm Visualizer
 
+![image](./assets/images/readme_image.png)
+
 ## Project Description
 The ***Sorting Algorithm Visualizer*** is a  tool designed to help users understand and visualize the workings of various sorting algorithms. This web-based application demonstrates the process of sorting data, making complex algorithms easier to grasp.
 
