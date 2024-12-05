@@ -3,7 +3,16 @@
 ![image](./assets/images/readme_image.png)
 
 ## Project Description
-The ***Sorting Algorithm Visualizer*** is a  tool designed to help users understand and visualize the workings of various sorting algorithms. This web-based application demonstrates the process of sorting data, making complex algorithms easier to grasp.
+The ***Sorting Algorithm Visualizer*** is a  tool designed to help users understand and visualize the workings of various sorting algorithms. This web-based application demonstrates the process of sorting data, making complex algorithms easier to grasp.  
+
+The available algorithms:  
+1. Bubble sort
+2. Selection sort
+3. Inserction sort
+4. Merge sort
+5. Quick sort
+6. Heap sort
+
 
 ## Installation
 1. Clone the repository:
