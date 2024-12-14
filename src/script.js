@@ -76,9 +76,9 @@ function change(length, takeLenght){
     }
 }
 
-async function bubbleSort(arr, slider) {
+async function bubbleSort(array, slider) {
     stopFlag = false;
-    let n = arr.length;
+    let n = array.length;
     let j;
 
     for (let i = 0; i < n - 1; i++) {
@@ -86,22 +86,23 @@ async function bubbleSort(arr, slider) {
             if(stopFlag){
                 return;
             }
-            if (arr[j].offsetHeight > arr[j + 1].offsetHeight) {
-                let temp = arr[j].offsetHeight;
-                arr[j].style.height = arr[j + 1].offsetHeight;
-                arr[j + 1].style.height = temp;
+            if (array[j].offsetHeight > array[j + 1].offsetHeight) {
+                let temp = array[j].offsetHeight;
+                array[j].style.height = array[j + 1].offsetHeight;
+                array[j + 1].style.height = temp;
             }
             if(j%(slider.value*2) == 0){
                 await sleep(5);
             }
         }
     }
-    return arr;
+    return array;
 }
 
 async function selectionSort(array, slider){
     stopFlag = false;
     let min, temp;
+
     for(let i=0; i<array.length; i++){
         if(stopFlag){
             return;
@@ -141,39 +142,34 @@ async function insertionSort(array, slider){
     }
 }
 
-async function mergeSort(arr, slider, left = 0, right = arr.length - 1) {
+async function mergeSort(array, slider, left = 0, right = array.length - 1) {
     stopFlag = false;
     if (left < right) {
         const mid = Math.floor((left + right) / 2);
-        await mergeSort(arr, slider, left, mid);
-        await mergeSort(arr, slider, mid + 1, right);
-        await merge(arr, left, mid, right, slider);
+        await mergeSort(array, slider, left, mid);
+        await mergeSort(array, slider, mid + 1, right);
+        await merge(array, left, mid, right, slider);
     }
 
-    async function merge(arr, left, mid, right, slider) {
+    async function merge(array, left, mid, right, slider) {
         let start2 = mid + 1;
-        let originalLeft = left;
         
-        if (arr[mid].offsetHeight <= arr[start2].offsetHeight) {
+        if (array[mid].offsetHeight <= array[start2].offsetHeight) {
             return;
         }
         while (left <= mid && start2 <= right) {
-            if (arr[left].offsetHeight <= arr[start2].offsetHeight) {
+            if (array[left].offsetHeight <= array[start2].offsetHeight) {
                 left++;
             } else {
-                const value = arr[start2].offsetHeight;
+                const value = array[start2].offsetHeight;
                 let index = start2;
     
                 while (index !== left) {
-                    arr[index].style.height = arr[index - 1].offsetHeight;
+                    array[index].style.height = array[index - 1].offsetHeight;
                     index--;
                 }
-                arr[left].style.height = value;
-    
-    
-                // Update all pointers
+                array[left].style.height = value;
 
-                // Update all pointers
                 left++;
                 mid++;
                 start2++;
@@ -185,22 +181,6 @@ async function mergeSort(arr, slider, left = 0, right = arr.length - 1) {
                 await sleep(1);
             }
         }
-    }
-}
-
-
-async function bogoSort(array, slider) {
-    stopFlag = false;
-    let n = array.length;
-    while(1){
-        if(isSorted(array)){
-            return;
-        }
-        if(stopFlag){
-            return;
-        }
-        change(n, true);
-        await sleep(80/(2*slider.value));
     }
 }
 
@@ -295,6 +275,20 @@ async function heapSort(array, slider) {
     }
 }
 
+async function bogoSort(array, slider) {
+    stopFlag = false;
+    let n = array.length;
+    while(1){
+        if(isSorted(array)){
+            return;
+        }
+        if(stopFlag){
+            return;
+        }
+        change(n, true);
+        await sleep(80/(2*slider.value));
+    }
+}
 
 async function sort(){
     stopFlag = true;
@@ -334,6 +328,3 @@ async function sort(){
     let endTime = performance.now();
     let takenTime = endTime - startTime;
 }
-
-
-document.getElementById("change").style.height = document.getElementById("number").offsetHeight;
